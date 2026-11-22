@@ -1,30 +1,27 @@
-import org.jline.reader.*;
-import org.jline.reader.impl.*;
-import org.jline.terminal.*;
-import org.jline.terminal.impl.*;
+// JLine Toolse
+import org.jline.terminal.Terminal;
+import org.jline.terminal.TerminalBuilder;
+import org.jline.utils.NonBlockingReader;
+
+// Data Structures
+import java.util.Map;
+import java.util.ArrayDeque;
+import java.util.Queue;
 
 public class OcarinaCLI
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
-        try {
-            // Create a terminal
-            Terminal terminal = TerminalBuilder.builder()
-                    .system(true)
-                    .build();
+        Terminal terminal = TerminalBuilder.builder()
+                .system(true)
+                .build();
 
-            // Create line reader
-            LineReader reader = LineReaderBuilder.builder()
-                    .terminal(terminal)
-                    .build();
+        // Respond without hitting "enter"
+        terminal.enterRawMode();
 
-            // Prompt and read input
-            String line = reader.readLine("JLine > ");
+        NonBlockingReader reader = terminal.reader();
+        Queue<Character> notes = new ArrayDeque<>();
 
-            // Print the result
-            System.out.println("You entered: " + line);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 }
