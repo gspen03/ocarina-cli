@@ -5,7 +5,7 @@ import org.jline.utils.NonBlockingReader;
 
 // Data Structures
 import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.Deque;
 import java.util.Set;
 // import java.util.HashSet;
 
@@ -21,7 +21,7 @@ public class OcarinaCLI
         terminal.enterRawMode();
 
         NonBlockingReader reader = terminal.reader();
-        Queue<Character> notes = new ArrayDeque<>();
+        Deque<Character> notes = new ArrayDeque<>();
 
         System.out.println("Play notes (A/W/D/J/K). Press 'q' to quit or 'h' for help.");
 
@@ -45,23 +45,23 @@ public class OcarinaCLI
                 continue;
 
             System.out.print(note + " ");
-            notes.offer(note);
+            notes.addFirst(note);
 
             // No song has more than 8 notes
             if(notes.size() > 8)
-                    notes.poll();
+                    notes.removeLast();
 
-            if(notes.size() >= 5 && notes.size() <= 8)
+            StringBuilder seq = new StringBuilder();
+            for (char c : notes)
             {
-                StringBuilder seq = new StringBuilder();
-                for(char c : notes)
-                    seq.append(c);
-
+                seq.insert(0, c);
                 String match = Songs.getSong(seq.toString());
-                if(match != null)
+
+                if (match != null)
                 {
-                    System.out.println("You played " + match + "!");
+                    System.out.println("\nYou played: " + match + "!");
                     notes.clear();
+                    break;
                 }
             }
         }
