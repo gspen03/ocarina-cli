@@ -31,8 +31,18 @@ public class Songs
     public static void printSongs()
     {
         System.out.println();
-        System.out.println("--- Songs List ---");
+        System.out.println("=== Songs List ===");
         SONGS.forEach((key, value) -> System.out.println(key + ": " + value));
-        System.out.println("------------------");
+        System.out.println();
+
+        System.out.println("==== Notes ====");
+        System.out.println("---(W)---------");
+        System.out.println("               ");
+        System.out.println("-(A)-----------");
+        System.out.println("      (D)      ");
+        System.out.println("---------------");
+        System.out.println("           (R) ");
+        System.out.println("--------(L)----");
+        System.out.println("===============");
     }
 }
