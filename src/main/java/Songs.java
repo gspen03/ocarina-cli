@@ -30,6 +30,9 @@ public class Songs
 
     public static void printSongs()
     {
+        System.out.println();
+        System.out.println("--- Songs List ---");
         SONGS.forEach((key, value) -> System.out.println(key + ": " + value));
+        System.out.println("------------------");
     }
 }

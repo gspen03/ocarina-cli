@@ -33,11 +33,16 @@ public class OcarinaCLI
                 break;
 
             if(note == 'h')
+            {
                 Songs.printSongs();
+                continue;
+            }
+
+            System.out.print(note + " ");
 
             notes.offer(note);
 
-            // No song is has more than 8 notes
+            // No song has more than 8 notes
             if(notes.size() > 8)
                     notes.poll();
 
