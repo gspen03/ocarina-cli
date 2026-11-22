@@ -6,6 +6,8 @@ import org.jline.utils.NonBlockingReader;
 // Data Structures
 import java.util.ArrayDeque;
 import java.util.Queue;
+import java.util.Set;
+// import java.util.HashSet;
 
 public class OcarinaCLI
 {
@@ -23,6 +25,8 @@ public class OcarinaCLI
 
         System.out.println("Play notes (A/W/D/J/K). Press 'q' to quit or 'h' for help.");
 
+        Set<Character> validNotes = Set.of('a', 'w', 'd', 'j', 'k');
+
         while(true)
         {
             char ch = (char)reader.read();
@@ -37,8 +41,10 @@ public class OcarinaCLI
                 continue;
             }
 
-            System.out.print(note + " ");
+            if(!validNotes.contains(note))
+                continue;
 
+            System.out.print(note + " ");
             notes.offer(note);
 
             // No song has more than 8 notes
