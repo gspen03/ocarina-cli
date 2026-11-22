@@ -32,7 +32,18 @@ public class Songs
     {
         System.out.println();
         System.out.println("=== Songs List ===");
-        SONGS.forEach((key, value) -> System.out.println(key + ": " + value));
+        System.out.println("Zelda's Lullaby: A-W-D-A-W-D");
+        System.out.println("Epona's Song: W-A-D-W-A-D");
+        System.out.println("Saria's Song: K-D-A-K-D-A");
+        System.out.println("Sun's Song: D-K-W-D-K-W");
+        System.out.println("Song of Time: D-J-K-D-J-K");
+        System.out.println("Song of Storms: J-K-W-J-K-W");
+        System.out.println("Minuet of the Forest: J-W-A-K-W-A");
+        System.out.println("Prelude of Light: W-D-W-D-A-W");
+        System.out.println("Bolero of Fire: K-J-K-J-D-K-D-K");
+        System.out.println("Serenade of Water: J-K-D-D-A");
+        System.out.println("Nocturne of Shadow: A-D-D-J-A-D-K");
+        System.out.println("Requiem of Spirit: J-K-J-D-K-J");
         System.out.println();
 
         System.out.println("==== Notes ====");
