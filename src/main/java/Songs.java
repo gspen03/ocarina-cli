@@ -27,4 +27,9 @@ public class Songs
     {
         return songs.get(sequence);
     }
+
+    public void printSongs()
+    {
+        songs.forEach((key, value) -> System.out.println(key + ": " + value));
+    }
 }
