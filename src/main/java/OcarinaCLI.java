@@ -1,4 +1,4 @@
-// JLine Toolse
+// JLine Tools
 import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
 import org.jline.utils.NonBlockingReader;
@@ -22,6 +22,40 @@ public class OcarinaCLI
         NonBlockingReader reader = terminal.reader();
         Queue<Character> notes = new ArrayDeque<>();
 
+        System.out.println("Play notes (A/W/D/J/K). Press 'q' to quit or 'h' for help.");
 
+        while(true)
+        {
+            char ch = (char)reader.read();
+            char note = Character.toLowerCase(ch);
+
+            if(note == 'q')
+                break;
+
+            if(note == 'h')
+                Songs.printSongs();
+
+            notes.offer(note);
+
+            // No song is has more than 8 notes
+            if(notes.size() > 8)
+                    notes.poll();
+
+            if(notes.size() >= 5 && notes.size() <= 8)
+            {
+                StringBuilder seq = new StringBuilder();
+                for(char c : notes)
+                    seq.append(c);
+
+                String match = Songs.getSong(seq.toString());
+                if(match != null)
+                {
+                    System.out.println("You played " + match + "!");
+                    notes.clear();
+                }
+            }
+        }
+
+        terminal.close();
     }
 }

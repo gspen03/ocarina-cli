@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Songs
 {
-    private final Map<String, String> songs = Map.ofEntries(
+    private static final Map<String, String> SONGS = Map.ofEntries(
             Map.entry("awdawd", "Zelda's Lullaby"),
             Map.entry("wadwad", "Epona's Song"),
             Map.entry("kdakda", "Saria's Song"),
@@ -23,13 +23,13 @@ public class Songs
             Map.entry("jkjdkj", "Requiem of Spirit")
     );
 
-    public String getSong(String sequence)
+    public static String getSong(String sequence)
     {
-        return songs.get(sequence);
+        return SONGS.get(sequence);
     }
 
-    public void printSongs()
+    public static void printSongs()
     {
-        songs.forEach((key, value) -> System.out.println(key + ": " + value));
+        SONGS.forEach((key, value) -> System.out.println(key + ": " + value));
     }
 }
