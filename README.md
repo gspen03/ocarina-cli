@@ -1,7 +1,8 @@
-Command line program that replicates playing the Ocarina from The Legend of Zelda: Ocarina of Time.
-
 ## Try It Out!
 
-### Run with Docker (No installation required) using this command
+Make sure [Docker](https://www.docker.com/get-started/) is installed and running, then clone the repo and launch the app:
+
 ```bash
-docker run -it --rm gspen03/ocarina-cli
+git clone [https://github.com/gspen03/ocarina-cli.git](https://github.com/gspen03/ocarina-cli.git)
+cd ocarina-cli
+docker compose run --rm app
