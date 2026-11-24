@@ -21,7 +21,7 @@ public class DatabaseManager implements AutoCloseable
 
     public String getSong(String sequence)
     {
-        String sql = "SELECT name FROM songs WHERE sequence = ?";
+        String sql = "SELECT title FROM songs WHERE notes = ?";
 
         try(PreparedStatement stmt = connection.prepareStatement(sql))
         {
@@ -31,7 +31,7 @@ public class DatabaseManager implements AutoCloseable
             {
                 if(rs.next())
                 {
-                    return rs.getString("name");
+                    return rs.getString("title");
                 }
             }
         }
@@ -44,7 +44,7 @@ public class DatabaseManager implements AutoCloseable
 
     public void printSongs()
     {
-        String sql = "SELECT sequence, name FROM songs ORDER BY name";
+        String sql = "SELECT notes, title FROM songs ORDER BY title";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql))
         {
@@ -52,7 +52,7 @@ public class DatabaseManager implements AutoCloseable
             {
                 while (rs.next())
                 {
-                    System.out.println(rs.getString("name") + ": " + rs.getString("sequence"));
+                    System.out.println(rs.getString("title") + ": " + rs.getString("notes"));
                 }
             }
         }

@@ -1,12 +1,12 @@
 CREATE TABLE IF NOT EXISTS songs (
     notes       VARCHAR(10) NOT NULL,
-    title       VARCHAR(50) NOT NULL
+    title       VARCHAR(50) NOT NULL,
 
     CONSTRAINT pk_songs
         PRIMARY KEY (notes)
 );
 
-INSERT IGNORE INTO songs (sequence, name) VALUES
+INSERT IGNORE INTO songs (notes, title) VALUES
     ('awdawd', 'Zelda''s Lullaby'),
     ('wadwad', 'Epona''s Song'),
     ('kdakda', 'Saria''s Song'),
