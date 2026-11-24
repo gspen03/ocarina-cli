@@ -13,7 +13,7 @@ services:
       retries: 15
 
   app:
-    build: .
+    image: gspen03/ocarina-cli:latest
     depends_on:
       db:
         condition: service_healthy
