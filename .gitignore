@@ -38,3 +38,4 @@ build/
 ### Other ###
 *.class
 .env
+compose.override.yaml
