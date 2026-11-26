@@ -31,7 +31,18 @@ public class OcarinaCLI
 
             Set<Character> validNotes = Set.of('a', 'w', 'd', 'j', 'k');
 
+            // flag for displaying "listening"
+            boolean hasPrompted = false;
+
             while (true) {
+
+                if(!hasPrompted)
+                {
+                    System.out.print("Listening: ");
+                    hasPrompted = true;
+                }
+
+
                 char ch = (char) reader.read();
                 char note = Character.toLowerCase(ch);
 
@@ -61,6 +72,7 @@ public class OcarinaCLI
                     if (match != null) {
                         System.out.println("\nYou played: " + match + "!");
                         notes.clear();
+                        hasPrompted = false;
                         break;
                     }
                 }
