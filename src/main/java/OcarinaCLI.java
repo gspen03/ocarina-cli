@@ -51,6 +51,7 @@ public class OcarinaCLI
 
                 if (note == 'h') {
                     db.printSongs();
+                    hasPrompted = false;
                     continue;
                 }
 
