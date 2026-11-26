@@ -50,10 +50,13 @@ public class DatabaseManager implements AutoCloseable
         {
             try (ResultSet rs = stmt.executeQuery())
             {
+                System.out.println();
+                System.out.println("=== Songs List ===");
                 while (rs.next())
                 {
                     System.out.println(rs.getString("title") + ": " + rs.getString("notes"));
                 }
+                System.out.println();
             }
         }
         catch(SQLException e)
