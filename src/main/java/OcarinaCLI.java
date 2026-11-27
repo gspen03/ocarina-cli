@@ -7,7 +7,6 @@ import org.jline.utils.NonBlockingReader;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Set;
-// import java.util.HashSet;
 
 // Database
 import db.DatabaseManager;
@@ -46,9 +45,11 @@ public class OcarinaCLI
                 char ch = (char) reader.read();
                 char note = Character.toLowerCase(ch);
 
+                // Quit
                 if (note == 'q')
                     break;
 
+                // Help
                 if (note == 'h') {
                     db.printSongs();
                     hasPrompted = false;
@@ -79,6 +80,5 @@ public class OcarinaCLI
                 }
             }
         }
-        // terminal.close();
     }
 }
